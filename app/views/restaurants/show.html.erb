@@ -1,7 +1,8 @@
 <h1><%= @restaurant[:name] %></h1>
+<h2>Informations</h2>
 <p>type : <%= @restaurant[:category] %></p>
 <p>Adresse : <%= @restaurant[:address] %></p>
-<p>Numéro de téléphone : <%= @restaurant[:phone_number]%></p>
+<p>Numéro de téléphone : <%= @restaurant[:phone_number] %></p>
 <p><strong>Reviews</strong></p>
 <ul class="list-group">
   <% @restaurant.reviews.each do |review| %>
@@ -11,5 +12,9 @@
     </div></li>
   <% end %>
 </ul>
-<%= link_to "create a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
-<%= link_to "back", root_path, class: "text-decoration-none" %>
+<h2>Write your review</h2>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
