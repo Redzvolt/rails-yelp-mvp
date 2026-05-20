@@ -1,0 +1,14 @@
+<h1>Our Restaurants</h1>
+<ul class="list-group">
+  <% @restaurants.each do |restaurant| %>
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between">
+        <h3><%= link_to restaurant[:name], restaurant_path(restaurant), class: "text-decoration-none" %></h3>
+        <p>type : <%= restaurant[:category] %></p>
+      </div>
+      <p>Adresse : <%= restaurant[:address] %></p>
+      <p>Numéro de téléphone : <%= restaurant[:phone_number]%></p>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "create a new restaurant", new_restaurant_path, class: "btn btn-primary" %>

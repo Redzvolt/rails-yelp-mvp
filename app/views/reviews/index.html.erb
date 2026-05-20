@@ -1,0 +1,10 @@
+<h1>Our Restaurants</h1>
+<ul class="list-group">
+  <% @reviews.each do |review| %>
+    <li class="list-group-item">
+      <p>rating : <%= review[:rating] %></p>
+      <p><%= review[:content]%></p>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "create a new review", new_review_path, class: "btn btn-primary text-decoration-none" %>

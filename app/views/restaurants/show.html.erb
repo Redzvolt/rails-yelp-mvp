@@ -1,0 +1,15 @@
+<h1><%= @restaurant[:name] %></h1>
+<p>type : <%= @restaurant[:category] %></p>
+<p>Adresse : <%= @restaurant[:address] %></p>
+<p>Numéro de téléphone : <%= @restaurant[:phone_number]%></p>
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><div>
+      <p><%= review.rating %></p>
+      <p><%= review.content %></p>
+    </div></li>
+  <% end %>
+</ul>
+<%= link_to "create a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+<%= link_to "back", root_path, class: "text-decoration-none" %>
